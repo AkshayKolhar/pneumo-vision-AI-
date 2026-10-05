@@ -1,0 +1,111 @@
+{
+  "dataset": "data\\chest_xray",
+  "selection_split": "stratified patient-group validation split from train/",
+  "test_split": "test/",
+  "minimum_validation_recall": 0.98,
+  "threshold_selection_note": "Exploratory operating point only; selected on validation data, not a clinical recommendation. Baseline remains at the fixed 0.50 threshold because its training split is unknown.",
+  "models": {
+    "baseline": {
+      "checkpoint_sha256": "df0f9d561cc733baadd7b34d3afee5dce039fc7669ef8f98b97112e7b399d542",
+      "threshold_policy": "Fixed at 0.50; the original training split is unknown, so the current validation split is not used to tune this checkpoint.",
+      "test_at_0_50": {
+        "threshold": 0.5,
+        "samples": 619,
+        "accuracy": 0.7108239095315024,
+        "pneumonia_recall": 1.0,
+        "pneumonia_precision": 0.6826241134751773,
+        "pneumonia_f1": 0.8113804004214963,
+        "normal_specificity": 0.23504273504273504,
+        "confusion_matrix": [
+          [
+            55,
+            179
+          ],
+          [
+            0,
+            385
+          ]
+        ]
+      }
+    },
+    "challenger": {
+      "checkpoint_sha256": "641ba4cc48a62b2c9143323ef67b31de5e51e8953e7fd9d6cf3659da211ce83c",
+      "validation_at_0_50": {
+        "threshold": 0.5,
+        "samples": 1038,
+        "accuracy": 0.9739884393063584,
+        "pneumonia_recall": 0.9716129032258064,
+        "pneumonia_precision": 0.9934036939313984,
+        "pneumonia_f1": 0.9823874755381603,
+        "normal_specificity": 0.9809885931558935,
+        "confusion_matrix": [
+          [
+            258,
+            5
+          ],
+          [
+            22,
+            753
+          ]
+        ]
+      },
+      "threshold_selected_on_validation": {
+        "threshold": 0.34126731753349304,
+        "samples": 1038,
+        "accuracy": 0.9788053949903661,
+        "pneumonia_recall": 0.9806451612903225,
+        "pneumonia_precision": 0.9908735332464146,
+        "pneumonia_f1": 0.9857328145265888,
+        "normal_specificity": 0.973384030418251,
+        "confusion_matrix": [
+          [
+            256,
+            7
+          ],
+          [
+            15,
+            760
+          ]
+        ]
+      },
+      "test_at_0_50": {
+        "threshold": 0.5,
+        "samples": 619,
+        "accuracy": 0.8885298869143781,
+        "pneumonia_recall": 0.9896103896103896,
+        "pneumonia_precision": 0.8542600896860987,
+        "pneumonia_f1": 0.9169675090252709,
+        "normal_specificity": 0.7222222222222222,
+        "confusion_matrix": [
+          [
+            169,
+            65
+          ],
+          [
+            4,
+            381
+          ]
+        ]
+      },
+      "test_at_selected_threshold": {
+        "threshold": 0.34126731753349304,
+        "samples": 619,
+        "accuracy": 0.8626817447495961,
+        "pneumonia_recall": 0.9896103896103896,
+        "pneumonia_precision": 0.8246753246753247,
+        "pneumonia_f1": 0.8996458087367177,
+        "normal_specificity": 0.6538461538461539,
+        "confusion_matrix": [
+          [
+            153,
+            81
+          ],
+          [
+            4,
+            381
+          ]
+        ]
+      }
+    }
+  }
+}

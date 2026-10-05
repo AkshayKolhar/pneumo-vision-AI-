@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+data/
+models/*.pth
+models/*.csv
+evaluation_results.png
+evaluation_results.json
